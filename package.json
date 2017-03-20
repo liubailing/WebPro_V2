@@ -1,0 +1,25 @@
+{
+  "name": "todo_web_projcet",
+  "version": "1.0.0",
+  "description": "web projcet vue webpack module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liubailing/WebPro_V2.git"
+  },
+  "keywords": [
+    "vue",
+    "webpack",
+    "project",
+    "javascript"
+  ],
+  "author": "liubailing (137089838@qq.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liubailing/WebPro_V2/issues"
+  },
+  "homepage": "https://github.com/liubailing/WebPro_V2#readme"
+}

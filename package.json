@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "web projcet vue webpack module",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/liubailing/WebPro_V2.git"
@@ -22,6 +19,11 @@
     "url": "https://github.com/liubailing/WebPro_V2/issues"
   },
   "homepage": "https://github.com/liubailing/WebPro_V2#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node build/dev-server.js",
+    "build": "node build/build.js"
+  },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",

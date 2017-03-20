@@ -61,5 +61,8 @@
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
+  },
+  "dependencies": {
+    "glob": "^7.1.1"
   }
 }

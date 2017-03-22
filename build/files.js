@@ -7,8 +7,12 @@ var config = require('../config')
 
 var env = config.build.env;
 var filesPath={
+    jsVendor:["vendor"],
     js :"../src/js",
-    template:"../src/tpl"
+    jsIgnore:["libs"],
+    jsDist:"/src/js/",
+    template:"../src/tpl",
+    templateDist:"/src/tpl/"
 }
 
 var result = {
@@ -23,7 +27,7 @@ function getFiles(pathDir, filetye) {
     var re = new RegExp("(.+)." + filetye + "$", "g");
     var res = []
     files.forEach(function(fname) {
-        if (fname.match(re) && fname.indexOf("/lib/") < 0) {
+        if (fname.match(re) && fname.indexOf("/libs/") < 0) {
             res.push(fname);
         }
     })
@@ -37,7 +41,7 @@ var jsFiles = getFiles(jsDir, "js");
 
 jsFiles.forEach(function(filePath) {
     var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'));
-    var distPath = filePath.substring(filePath.lastIndexOf('/src/js/')+8,filePath.lastIndexOf('\/')+1)
+    var distPath = filePath.substring(filePath.lastIndexOf(filesPath.jsDist)+filesPath.jsDist.length,filePath.lastIndexOf('\/')+1)
     result.entries[distPath+filename] = filePath;
 })
 console.log(chalk.yellow('get jsfiles config complete.\n'))
@@ -49,7 +53,7 @@ var htmlFiles = getFiles(htmlDir, "html");
 var entriesKeys = Object.keys(result.entries);
 htmlFiles.forEach(function(filePath) {
     var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'));
-    var distPath = filePath.substring(filePath.lastIndexOf('/src/tpl/')+9,filePath.lastIndexOf('\/')+1)
+    var distPath = filePath.substring(filePath.lastIndexOf(filesPath.templateDist)+filesPath.templateDist.length,filePath.lastIndexOf('\/')+1)
 
     filename = distPath+ filename;
     var conf = {
@@ -58,7 +62,7 @@ htmlFiles.forEach(function(filePath) {
     }
 
     conf.inject = 'body'
-    if(result.entries[filename]) conf.chunks = ['vendor',"main",filename]
+    if(result.entries[filename]) conf.chunks = filesPath.jsVendor.concat(filename);
 
     result.html_plugins.push(new htmlWebpackPlugin(conf))
 });

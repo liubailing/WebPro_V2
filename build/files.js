@@ -62,7 +62,7 @@ htmlFiles.forEach(function(filePath) {
     }
 
     conf.inject = 'body'
-    if(result.entries[filename]) conf.chunks = filesPath.jsVendor.concat(filename);
+    if(result.entries[filename]) conf.chunks =  filename.concat(filesPath.jsVendor);
 
     result.html_plugins.push(new htmlWebpackPlugin(conf))
 });

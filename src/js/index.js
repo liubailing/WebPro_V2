@@ -1,7 +1,7 @@
 //import Vue from 'vue';
-import $ from './libs/zepto.js';
+//console.log($("#test").html());
+import $ from 'jquery';
 console.log($("#test").html());
-
 // import VueRouter from 'vue-router';
 // import filters from './filters';
 // import routes from './routers';

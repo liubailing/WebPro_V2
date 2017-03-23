@@ -6,6 +6,8 @@ dist/
 
 ## files for logs
 *.log
+*.log.*
+
 npm-debug.log
 
 ## files for others config setting

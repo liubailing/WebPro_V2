@@ -4,14 +4,14 @@ var webpack = require('webpack')
 var config = require('../config')
 var baseWebpackConfig = require('./webpack.base.conf')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+//var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 var webpackFiles = require('./files')
 var env = config.build.env;
 
-baseWebpackConfig.entry = webpackFiles.entries;
+baseWebpackConfig.entry = Object.assign(baseWebpackConfig.entry,webpackFiles.entries);
 
 var webpackConfig = Object.assign(baseWebpackConfig, {
   module: {
@@ -23,8 +23,8 @@ var webpackConfig = Object.assign(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+    filename: utils.assetsPath('js/[name].[chunkhash:8].js'),
+    chunkFilename: utils.assetsPath('js/[id].[chunkhash:8].js')
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html

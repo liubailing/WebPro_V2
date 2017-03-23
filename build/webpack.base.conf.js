@@ -9,11 +9,12 @@ function resolve(dir) {
 
 module.exports = {
     entry: {
-        app: './src/main.js'
+        //app: './src/main.js'
+        'vendor': ['jquery',"vuejs"]
     },
     output: {
         path: config.build.assetsRoot,
-        filename: '[name].js',
+        filename: '[name].[chunkhash:8].js',
         publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
     },
     resolve: {
@@ -27,7 +28,9 @@ module.exports = {
             "test":"this.is test in alias",
             'src': resolve('src'),
             'assets': resolve('src/assets'),
-            'components': resolve('src/components')
+            'components': resolve('src/components'),
+            'jquery':resolve('src/js/libs/jquery.min'),
+            'vuejs':resolve('src/js/libs/vue.min')
         }
     },
     module: {

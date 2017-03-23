@@ -2,11 +2,11 @@ var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
 var baseWebpackConfig = require('./webpack.base.conf')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+//var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var webpackFiles = require('./files')
 
-baseWebpackConfig.entry = webpackFiles.entries;
+baseWebpackConfig.entry = Object.assign(baseWebpackConfig.entry,webpackFiles.entries);
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {

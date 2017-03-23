@@ -1,4 +1,4 @@
 {
-    "jquery": "./src/js/lib/jquery.min.js",
-    "vue": "./src/js/lib/vue.min.js"
+    "jquery": "./src/js/lib/jquery.min",
+    "vue": "./src/js/lib/vue.min"
 }
